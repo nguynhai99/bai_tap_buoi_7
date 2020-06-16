@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai1</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<style>
+    .header {
+        text-align: center;
+        background-color: #FFFFF5;
+        border: 1px solid #F1F1F1;
+        padding: 10px 0px;
+    }
+    
+    .main {
+        border-left: 1px solid #F1F1F1;
+        border-right: 1px solid #F1F1F1;
+        border-bottom: 1px solid #F1F1F1;
+        height: 500px;
+    }
+    
+    .custom-button {
+        margin-bottom: 20px;
+        width: 65px;
+        margin-left: 20px;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 header">
+                <h4>thực hành toán tử số học</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-6 main">
+                <p style="color:red;margin-top:5px;font-weight: bold;font-size: 15px;" id="error"></p>
+                <form method="POST" id="form">
+                    <div class="form-group">
+                        <label for="number1">Nhập vào số a</label>
+                        <input id="number1" class="form-control" type="text" name="">
+                        <label for="number2">Nhập vào số b</label>
+                        <input id="number2" class="form-control" type="text" name="">
+                    </div>
+                    <button style="margin-left:0px" id="btn-plus" onclick="plusFunction()" class="btn btn-primary custom-button" type="button">a + b</button>
+                    <button id="btn-minus" onclick="minusFunction()" class="btn btn-secondary custom-button" type="button">a - b</button>
+                    <button id="btn-multiply" onclick="multiFunction()" class="btn btn-danger custom-button" type="button">a * b</button>
+                    <button id="btn-division" onclick="divisFunction()" class="btn btn-warning custom-button" type="button">a / b</button>
+                    <button id="btn-divi" onclick="diviFunction()" class="btn btn-info custom-button" type="button">a % b</button> <br>
+                    <button style="margin-left:0px" id="btn-up" onclick="upFunction()" class="btn btn-primary custom-button" type="button">a++</button>
+                    <button id="btn-upback" onclick="upBackFunction()" class="btn btn-danger custom-button" type="button">++a</button>
+                    <button id="btn-down" onclick="downFunction()" class="btn btn-success custom-button" type="button">a--</button>
+                    <button id="btn-downback" onclick="downBackFunction()" class="btn btn-secondary custom-button" type="button">--a</button> <br>
+                    <input style="margin-left:00px" type="reset" onclick="reloadFuncition()" value="Reset dữ liệu" class="btn btn-warning" style="color:white; margin-left:20px">
+                    <p style="color:blue;margin-top:5px;" id="result"></p>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log('Đã chạy vào sự kiện submit');
+
+        var text1 = document.getElementById('btn-plus').innerHTML;
+        var text2 = document.getElementById('btn-minus').innerHTML;
+        var text3 = document.getElementById('btn-multiply').innerHTML;
+        var text4 = document.getElementById('btn-division').innerHTML;
+        var text5 = document.getElementById('btn-divi').innerHTML;
+        var text6 = document.getElementById('btn-up').innerHTML;
+        var text7 = document.getElementById('btn-upback').innerHTML;
+        var text8 = document.getElementById('btn-down').innerHTML;
+        var text9 = document.getElementById('btn-downback').innerHTML;
+
+
+        function plusFunction() {
+            var number1 = document.getElementById('number1').value;
+            var number2 = document.getElementById('number2').value;
+            var error = '';
+            var result = '';
+            if (number1 == '' || number2 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1) || isNaN(number2)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+
+                var result = parseInt(number1) + parseInt(number2)
+                document.getElementById("result").innerHTML = text1 + " " + '=' + " " + result;
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+        }
+
+        function minusFunction() {
+            var number1 = document.getElementById('number1').value;
+            var number2 = document.getElementById('number2').value;
+            var error = '';
+            var result = '';
+            if (number1 == '' || number2 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1) || isNaN(number2)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+                var result = parseInt(number1) - parseInt(number2)
+                document.getElementById("result").innerHTML = text2 + " " + '=' + " " + result;
+
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+
+
+        }
+
+        function multiFunction() {
+            var number1 = document.getElementById('number1').value;
+            var number2 = document.getElementById('number2').value;
+            var error = '';
+            var result = '';
+            if (number1 == '' || number2 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1) || isNaN(number2)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+                var result = parseInt(number1) * parseInt(number2)
+                document.getElementById("result").innerHTML = text3 + " " + '=' + " " + result;
+
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+
+
+        }
+
+        function divisFunction() {
+            var number1 = document.getElementById('number1').value;
+            var number2 = document.getElementById('number2').value;
+            var error = '';
+            var result = '';
+            if (number1 == '' || number2 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1) || isNaN(number2)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+                var result = parseInt(number1) / parseInt(number2)
+                document.getElementById("result").innerHTML = text4 + " " + '=' + " " + result;
+
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+
+
+        }
+
+        function diviFunction() {
+            var number1 = document.getElementById('number1').value;
+            var number2 = document.getElementById('number2').value;
+            var error = '';
+            var result = '';
+            if (number1 == '' || number2 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1) || isNaN(number2)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+                var result = parseInt(number1) % parseInt(number2)
+                document.getElementById("result").innerHTML = text5 + " " + '=' + " " + result;
+
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+
+
+        }
+
+        function upFunction() {
+            var number1 = document.getElementById('number1').value;
+            var error = '';
+            var result = '';
+            if (number1 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+                var result = parseInt(number1)
+                document.getElementById("result").innerHTML = text6 + " " + '=' + " " + result++;
+
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+
+
+        }
+
+        function upBackFunction() {
+            var number1 = document.getElementById('number1').value;
+            var error = '';
+            var result = '';
+            if (number1 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+                var result = parseInt(number1)
+                document.getElementById("result").innerHTML = text6 + " " + '=' + " " + ++result;
+
+
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+
+
+
+        }
+
+        function downFunction() {
+            var number1 = document.getElementById('number1').value;
+            var error = '';
+            var result = '';
+            if (number1 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+
+                var result = parseInt(number1);
+                document.getElementById("result").innerHTML = text8 + " " + '=' + " " + result--;
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+
+        }
+
+        function downBackFunction() {
+            var number1 = document.getElementById('number1').value;
+            var error = '';
+            var result = '';
+            if (number1 == '') {
+                error = 'Không được để trống dữ liệu';
+            } else if (isNaN(number1)) {
+                error = 'Cần nhập dữ liệu là số';
+            }
+            if (error == '') {
+
+
+                var result = parseInt(number1);
+                document.getElementById("result").innerHTML = text9 + " " + '=' + " " + --result;
+            }
+            var obj_error = document.getElementById('error');
+            obj_error.innerHTML = error;
+
+        }
+
+        function reloadFuncition() {
+            location.reload()
+        }
+    </script>
+</body>
+
+</html>
