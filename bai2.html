@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bài 2</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+  </head>
+  <style>
+    .main {
+      width: 500px;
+      border: 1px solid grey;
+      height: 300px;
+      padding: 20px;
+    }
+    .form-control {
+      margin-bottom: 20px;
+    }
+    .form-group p {
+      color: blue;
+      margin-top: 20px;
+    }
+  </style>
+  <body>
+    <div class="main">
+      <form method="post" action="">
+        <div class="form-group">
+          <label for="my-input">Nhập vào số a:</label>
+          <input id="number" class="form-control" type="text" name="" />
+          <input
+            type="button"
+            onclick="checkFunction()"
+            class="btn btn-primary"
+            value="Kiểm tra"
+          />
+          <p id="checkText"></p>
+        </div>
+      </form>
+    </div>
+    <script>
+        function checkFunction(){
+            var num=document.getElementById('number').value;
+           if(parseInt(num)>1 || parseInt(num)<10){
+               var result=document.getElementById('checkText').innerHTML="Hợp lệ";
+           }else if(parseInt(num)>50 || parseInt(num)<100){
+            var result=document.getElementById('checkText').innerHTML="Hợp lệ";
+           }else{
+            var result=document.getElementById('checkText').innerHTML=num + " " + "không nằm trong khoảng từ 1-10 hoặc 50-100"; 
+           }
+        }
+    </script>
+  </body>
+</html>
